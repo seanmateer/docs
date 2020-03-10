@@ -21,7 +21,7 @@ You can see all of your hostname and URL pairs that you have set up in the table
 
 The Inbound Parse Webhook requires a hostname, where the emails will be sent, and the URL where SendGrid will POST the data it builds from every incoming email.
 
-**Host Name** - The domain where you have pointed an MX Record so addresses at this hostname can receive email. For example: parse.yourdomain.com
+**Host Name** - The domain where you have pointed an MX Record so addresses at this hostname can receive email. For example: parse.yourdomain.com.
 
 When entering your host name (also referred to as the receiving domain), the subdomain-domain combination must be globally unique, and the domain must be one of your authenticated domains.
 
@@ -33,4 +33,4 @@ When entering your host name (also referred to as the receiving domain), the sub
 
 ## 	Using the API
 
-If you're interested in how to use the Inbound Parse Webhook, please check out our [Inbound Parse Webhook API]({{root_url}}/API_Reference/Parse_Webhook/inbound_email.html).
+If you're interested in how to use the Inbound Parse Webhook, please check out our [Inbound Parse Webhook API](https://sendgrid.api-docs.io/v3.0/settings-inbound-parse/).

@@ -15,20 +15,20 @@ navigation:
 
 An unsubscribe is the action an email recipient takes when they opt-out of an email list. Typically, this is done by clicking the unsubscribe link in the email.
 
-A suppression is the action the sender takes when a recipient has opted out of an email list or when the recipient’s email server or provider has rejected emails sent to that address.
+A suppression is the action the sender takes by no longer sending to an email address when a recipient has opted out of an email list or when the recipient’s email server or provider has rejected emails sent to that address.
 
 This is an important distinction, because from the point of view of your recipients, you as the SendGrid customer are the sender. We have made this distinction in order to clearly define the difference between an action a recipient takes and an action SendGrid takes on your behalf.
 
 
 <call-out type="warning">
 
-Each email you send to a suppressed address will consume one email from your account.
+Each email you attempt to send to a suppressed address will consume one email from your account.
 
 </call-out>
 
 ## 	Managing Unsubscribes
 
-Managing unsubscribes is key to getting maximum email delivery. If your customers have an easy way to tell you that they’d like to stop receiving your email, instead of using the spam button, it will give you valuable insights without affecting your reputation.
+Managing unsubscribes is key to getting maximum email delivery. If your recipients have an easy way to tell you that they’d like to stop receiving your email, instead of using the spam button, it will give you valuable insights without affecting your reputation.
 
 SendGrid has three different ways of processing unsubscribes depending on how you’re sending mail. If you use [Subscription Tracking]({{root_url}}/ui/sending-email/subscription-tracking/), recipients can unsubscribe from all of the emails you’re sending. As a transactional mail user, you also have the option to create unsubscribe groups for your transactional templates using Advanced Suppression Management. Alternatively, if you’re sending Marketing Campaigns, recipients can unsubscribe from specific types of emails that they’d rather not receive anymore, also known as [Unsubscribe Groups]({{root_url}}/ui/sending-email/unsubscribe-groups/).
 
@@ -37,12 +37,12 @@ If you are sending Transactional email through the SendGrid API or SMTP and have
 The Subscription Tracking setting also has a number of options for customization, such as a replacement tag that allows you to place the unsubscribe text somewhere in the body of the email, the ability to reword the unsubscribe message, and the ability to add a custom landing page.
 
 If using Advanced Suppression Management in place of Subscription Tracking, an ASM tag must be included in the template. 
- - We will replace the tag with the text "Unsubscribe From All Emails" if you include <%asm_global_unsubscribe_url%>
+ - We will replace the tag with the text "Unsubscribe From All Emails" if you include `<%asm_global_unsubscribe_url%>`
  - We will replace the tag with the unsubscribe URL but **without** the hyperlinked tag if you include   
-   <%asm_global_unsubscribe_raw_url%>
- - We will replace the tag with the text "Unsubscribe from this list" if you include <%asm_group_unsubscribe_url%>
+   `<%asm_global_unsubscribe_raw_url%>`
+ - We will replace the tag with the text "Unsubscribe from this list" if you include `<%asm_group_unsubscribe_url%>`
  - We will replace the tag with only the group unsubscribe URL **without** the hyperlinked text if you include 
-   <%asm_group_unsubscribe_raw_url%>
+   `<%asm_group_unsubscribe_raw_url%>`
 
 ## 	Different Types of Suppressions
 

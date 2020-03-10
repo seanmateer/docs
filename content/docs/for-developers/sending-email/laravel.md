@@ -17,7 +17,7 @@ Laravel 5.5 LTS uses Mailable classes. Mailables in Laravel abstracts building e
 
 ## Before you begin
 
-In `.env` you need to find and configure these variables: 
+Check your `.env` file and configure these variables: 
 
 ```
 MAIL_DRIVER=smtp
@@ -37,7 +37,6 @@ The `MAIL_FROM_NAME` field requires double quotes because there is a space in th
 <call-out>
 You can send `100 messages per SMTP connection` at a time, and open up to `10 concurrent connections` from a single server at a time.
 </call-out>
-
 
 ## Creating a Mailable
 
@@ -81,7 +80,7 @@ class TestEmail extends Mailable
                     ->bcc($address, $name)
                     ->replyTo($address, $name)
                     ->subject($subject)
-                    ->with([ 'message' => $this->data['message'] ]);
+                    ->with([ 'test_message' => $this->data['message'] ]);
     }
 }
 ```
@@ -95,10 +94,11 @@ In Laravel `Views` are used as 'templates' when sending an email. Let's create a
     	</head>
     	<body>
     		<h2>Test Email</h2>
-    		<p>{{ $message }}</p>
+    		<p>{{ $test_message }}</p>
     	</body>
     </html>
 ```
+
 ## Sending an email
 
 Now that we have our Mailable Class created, all we need to do is run this code:
@@ -155,12 +155,12 @@ class TestEmail extends Mailable
         ];
 
         $header = $this->asString($headerData);
-        
+
         $this->withSwiftMessage(function ($message) use ($header) {
             $message->getHeaders()
                     ->addTextHeader('X-SMTPAPI', $header);
         });
-        
+
         return $this->view('emails.test')
                     ->from($address, $name)
                     ->cc($address, $name)
@@ -182,7 +182,7 @@ class TestEmail extends Mailable
     private function asString($data)
     {
         $json = $this->asJSON($data);
-        
+
         return wordwrap($json, 76, "\n   ");
     }
 }

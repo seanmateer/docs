@@ -1,9 +1,10 @@
-module.exports = {
+const config = {
+  env: process.env.NODE_ENV,
   docsDir: 'docs',
   siteTitle: 'SendGrid Documentation',
   siteTitleAlt: 'SendGrid Knowledge Center',
-  siteLogo: 'https://sendgrid.com/brand/sg-logo-300.png',
-  ogImage: 'https://sendgrid.com/brand/sg-logo-dark-facebook.jpg',
+  siteLogo: 'https://sendgrid.com/brand/sg-twilio/sg-twilio-lockup.svg',
+  ogImage: 'https://sendgrid.com/brand/sg-twilio/SG_Twilio_Lockup_Social.png',
   siteUrl: 'https://sendgrid.com',
   gitHubMarkdownPath: 'https://github.com/sendgrid/docs/tree/develop/content/docs',
   pathPrefix: '/docs',
@@ -12,3 +13,7 @@ module.exports = {
   googleAnalyticsID: 'UA-12399264-1',
   userTwitter: 'sendgrid',
 };
+
+config.envPrefix = process.env.NODE_ENV === 'development' ? '' : config.pathPrefix;
+
+module.exports = config;

@@ -2,9 +2,9 @@
 seo:
   title: cURL Examples for Common Use Cases
   description:
-  keywords: migration, v2 mail send, v3 mail send, upgrade
+  keywords: cURL, v3 mail send
 title: cURL Examples for Common Use Cases
-group: api-v2
+group: api-v3
 weight: 0
 layout: page
 navigation:
@@ -50,7 +50,7 @@ curl --request POST \
   --url https://api.sendgrid.com/v3/mail/send \
   --header 'authorization: Bearer YOUR_API_KEY' \
   --header 'Content-Type: application/json' \
-  --data '{"personalizations": [{"to": [{"email": "recipient@example.com"}]}],"from": {"email": "sendeexampexample@example.com"},"subject":"Hello, World!","content": [{"type": "text/plain","value": "Heya!"}], "send_at" : "UNIX_TIMESTAMP_HERE"}'
+  --data '{"personalizations": [{"to": [{"email": "recipient@example.com"}]}],"from": {"email": "sendeexampexample@example.com"},"subject":"Hello, World!","content": [{"type": "text/plain","value": "Heya!"}], "send_at" : UNIX_TIMESTAMP_HERE}'
 ```
 
 ## 	Scheduling and Cancelling an Email
@@ -71,7 +71,7 @@ curl --request POST \
   --url https://api.sendgrid.com/v3/mail/send \
   --header 'authorization: Bearer YOUR_API_KEY' \
   --header 'Content-Type: application/json' \
-  --data '{"personalizations": [{"to": [{"email": "recipient@example.com"}]}],"from": {"email": "sendeexampexample@example.com"},"subject":"Hello, World!","content": [{"type": "text/plain","value": "Heya!"}], "send_at" : "UNIX_TIMESTAMP_HERE", "batch_id" : "YOUR_BATCH_ID"}'
+  --data '{"personalizations": [{"to": [{"email": "recipient@example.com"}]}],"from": {"email": "sendeexampexample@example.com"},"subject":"Hello, World!","content": [{"type": "text/plain","value": "Heya!"}], "send_at" : UNIX_TIMESTAMP_HERE, "batch_id" : "YOUR_BATCH_ID"}'
 ```
 
 **Step 3: Cancel the scheduled email**

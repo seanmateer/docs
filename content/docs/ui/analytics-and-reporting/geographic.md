@@ -17,11 +17,11 @@ Parent accounts will see aggregated statistics for their account and all subuser
 
 </call-out>
 
-The geographical report shows a map of where your emails are being opened and clicked around the world. It is based purely on where your users live. For example if you don’t have any recipients engaging with your emails in France, you will not see statistics for France in your stats.
+The geographical report shows a map of where your emails are being opened and clicked around the world. It is based purely on where your users live. For example, if you don’t have any recipients engaging with your emails in France, you will not see statistics for France in your stats.
 
 ## 	Top 5
 
-The top 5 section will show you the most engaged geographical areas based on the selected metric. By default, clicks are select, but you can change that by choosing a metric from the button at the top of this section. You can change which metrics, date, or grouping by adjusting the [statistics filters]({{root_url}}/ui/analytics-and-reporting/stats-overview/#statistics-filters).
+The top 5 section will show you the most engaged geographical areas based on the selected metric. By default, clicks are selected, but you can change that by choosing a metric from the button at the top of this section. You can change which metrics, date, or grouping by adjusting the [statistics filters]({{root_url}}/ui/analytics-and-reporting/stats-overview/#statistics-filters).
 
 ## 	Activity Map
 
@@ -34,6 +34,12 @@ The figures table gives you all of the specific counts or percentages of each ev
 This table will refresh with new or adjusted data based on the various filters available at the top of the page. You can also choose to show actual counts or percentages, by clicking the corresponding button above and to the right of the table.
 
 To see only the figures from a specific geographic area, change the Activity Map to be either the world view or a specific country, then select the countries or states you want to see in the figures table using the buttons just above and to the right of the figures data.
+
+<call-out>
+
+Want deeper data and insights? With [SendGrid Email Insights Reports](https://go.sendgrid.com/Email-Insights-Reports.html?utm_source=docs), you’ll get access to more data about your email performance plus customized insights from a deliverability consultant.
+
+</call-out>
 
 ## 	Additional Resources
 

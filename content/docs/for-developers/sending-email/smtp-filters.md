@@ -11,9 +11,7 @@ Following are the settings that can be specified in the filters section of the X
 
 <call-out>
 
-
 * If you're enabling a Setting, also called a filter, via SMTPAPI, you are required to define all of the parameters for that Setting.
-* Setting enabled status will always default to your settings on the website, unless otherwise defined in your X-SMTPAPI header.
 * If you enable a disabled setting, our system will not pull your settings for the disabled setting. You will need to define the settings in your X-SMTPAPI header <em>Example:</em> If you have a footer designed but disabled, you can't just enable it via the API; you need to define the footer in the API call itself.
 * All filter names and setting names must be lowercase.
 
@@ -29,6 +27,12 @@ Some Settings are not listed here because they cannot be defined on a per-messag
 </call-out>
 
 ## Filter: bcc
+
+<call-out type="warning">
+
+Due to low usage, this setting has been deprecated. Click [here]({{root_url}}/ui/account-and-settings/retired-mail-settings/) for more information.
+
+</call-out>
 
 <p>Sends a BCC copy of the email created in this transaction to the address specified.</p>
 
@@ -118,16 +122,23 @@ Rewrites links in email text and html bodies to go through our webservers, allow
 <td><code>0</code> | <code>1</code></td>
 <td>Disable or enable this Setting</td>
 </tr>
+<tr>
+  <td>enable_text</td>
+  <td><code>true</code> | <code>false</code></td>
+  <td>Enable or Disable click-tracking links in the Plain-Text portion of the message.</td>
+</tr>
 </tbody>
 </table>
 
 #### Example X-SMTPAPI Header Value
+
 ```json
 {
   "filters" : {
     "clicktrack" : {
       "settings" : {
-        "enable" : 1
+        "enable" : 1,
+        "enable_text" : true
       }
     }
   }
@@ -161,6 +172,7 @@ of your email.
 </table>
 
 #### Example X-SMTPAPI Header Value
+
 ```json
 {
   "filters" : {
@@ -204,6 +216,7 @@ Inserts a footer at the bottom of the text and HTML bodies.
 </table>
 
 #### Example X-SMTPAPI Header Value
+
 ```json
 {
   "filters" : {
@@ -280,7 +293,6 @@ Re-writes links to integrate with Google Analytics.
 }
 ```
 
-
 ## Filter: opentrack
 
 If you don't use 'replace' this will insert an <code>&lt;img&gt;</code> tag at the bottom of the html section of an email which will be used to track if an email is opened. If you choose to use 'replace', you can put the tracking pixel wherever you would like in the email and SendGrid will replace it at send time.
@@ -306,6 +318,7 @@ If you don't use 'replace' this will insert an <code>&lt;img&gt;</code> tag at t
 </table>
 
 #### Example X-SMTPAPI Header Value
+
 ```json
 {
   "filters" : {
@@ -320,6 +333,12 @@ If you don't use 'replace' this will insert an <code>&lt;img&gt;</code> tag at t
 ```
 
 ## Filter: spamcheck
+
+<call-out type="warning">
+
+Due to low usage, this setting has been deprecated. Click [here]({{root_url}}/ui/account-and-settings/retired-mail-settings/) for more information.
+
+</call-out>
 
 <p>Tests message with <a href="http://spamassassin.apache.org/">SpamAssassin</a> to determine if it is spam, and drop it if it is.</p>
 
@@ -349,6 +368,7 @@ If you don't use 'replace' this will insert an <code>&lt;img&gt;</code> tag at t
 </table>
 
 #### Example X-SMTPAPI Header Value
+
 ```json
 {
   "filters" : {
@@ -364,6 +384,7 @@ If you don't use 'replace' this will insert an <code>&lt;img&gt;</code> tag at t
 ```
 
 ## Filter: subscriptiontrack
+
 Inserts a subscription management link at the bottom of the text and html bodies or insert the link anywhere in the email.
 
 If you wish to append an unsubscription link, use the <code>text/html</code> and <code>text/plain</code> parameters. However, if you wish to have the link replace a tag (such as <code>[unsubscribe]</code>), use the <code>replace</code> parameter.
@@ -427,7 +448,6 @@ This setting refers to SendGrid's <a href="{{root_url}}/API_Reference/Web_API_v3
 
 </call-out>
 
-
 Uses a [transactional template]({{root_url}}/API_Reference/Web_API_v3/Transactional_Templates/index.html) when sending an email.
 
 <table class="table table-striped table-bordered">
@@ -451,6 +471,7 @@ Uses a [transactional template]({{root_url}}/API_Reference/Web_API_v3/Transactio
 </table>
 
 #### Example X-SMTPAPI Header Value
+
 ```json
 {
   "filters": {
@@ -471,7 +492,6 @@ Uses a [transactional template]({{root_url}}/API_Reference/Web_API_v3/Transactio
 This setting refers to our original Email Template app. We now support more fully featured [transactional templates](#templates). You may create multiple transactional templates that allow for versioning, in addition to several other features.
 
 </call-out>
-
 
 <p>Wraps a template around your email content. Useful for sending out marketing email and other nicely formatted messages.</p>
 
@@ -496,6 +516,7 @@ This setting refers to our original Email Template app. We now support more full
 </table>
 
 #### Example X-SMTPAPI Header Value
+
 ```json
 {
   "filters" : {

@@ -19,12 +19,6 @@ The official SendGrid extension for Magento 2.0 makes it easy to ensure delivery
 
 Transactional email is an important component of any email communication strategy. SendGrid relieves businesses of the cost and complexity of maintaining custom email systems. SendGrid provides reliable delivery, scalability, and real-time analytics along with flexible APIs that make custom integration a breeze. SendGrid for Magento 2.0 allows you to choose between the SMTP relay or the Email API to send outgoing emails from your Magento installation.
 
-## 	SendGrid Pricing Plans
-
-Plans start at $9.95/month. Please see our [pricing page](https://sendgrid.com/partners/magento/) for more information.
-
-For a free trial, [click here](https://sendgrid.com/partners/magento/)!
-
 ## 	Main Features
 
  ### 	Proven Deliverability
@@ -47,7 +41,7 @@ Learn more about your shoppers’ engagement with performance feedback and real-
 
 * Our extension easily integrates with your SendGrid API key and allows you to send your Magento email with confidence through our world-class infrastructure.
 * In addition to reliable delivery and scalability, our extension allows you have access to real-time analytics and insights for quick, well-informed decision making about your customers to grow your e-commerce store.
-* Integrate easily with your SendGrid API key
+* Integrate easily with your SendGrid API key.
 
 ## 	What makes your extension unique?
 
@@ -55,7 +49,7 @@ Learn more about your shoppers’ engagement with performance feedback and real-
 * Flexible API and SMTP setup for easy transactional email Integration.
 * Key email deliverability features including email authentication, reputation monitoring, dedicated IP addresses, and more.
 * Real-time analytics and reporting including opens, clicks, bounces, unsubscribe tracking, and more.
-* Leverage our step-by-step [documentation]({{root_url}}/for-developers/partners/magento/) or get quick help from our [24/7 Support Team](https://support.sendgrid.com).
+* Leverage our step-by-step documentation or get quick help from our [24/7 Support Team](https://support.sendgrid.com).
 * This official extension was built for M2 by SendGrid’s dedicated partner-focused teams for continued management and future development.
 
 ## 	Configuration

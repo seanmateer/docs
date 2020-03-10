@@ -14,7 +14,7 @@ A webhook is an HTTP callback that allows a web application to POST a message to
 
 Some of the traditional APIs that SendGrid provides include:
 
-* [SMTP API]({{root_url}}/for-developers/sending-email/building-an-smtp-email/) – Provides custom handling instructions for email headers within messages.
+* [SMTP API]({{root_url}}/for-developers/sending-email/getting-started-smtp/) – Provides custom handling instructions for email headers within messages.
 * [Web API]({{root_url}}/api-reference/) – Allows users to retrieve account information like bounces, unsubscribes, or spam reports.
 * [Marketing Email API](https://sendgrid.com/email-marketing) – Offers developers the ability to manage the lists, identities, and delivery events for marketing emails.
 * [Template Engine API](https://sendgrid.com/transactional-email) – Provides a way for marketers and developers to create, iterate, and deploy transactional email templates.
@@ -33,6 +33,6 @@ Using the SendGrid Event Webhook allows users to follow the email best practices
 
 To help users take full advantage of the Event Webhook, SendGrid has also created the EventKit. The SendGrid EventKit allows users to create a user-friendly app where they download a *PHP* script and then upload it to their server in order to take advantage of the Event Webhook. You can learn more by visiting the [EventKit blog post](https://sendgrid.com/blog/open-source-eventkit-for-event-webhook/).
 
-In addition to the Event Webhook, SendGrid has also created the Parse Webhook to improve engagement with recipients. The [SendGrid Parse Webhook]({{root_url}}/for-developers/parsing-email/setting-up-the-inbound-parse-webhook/) allows users to parse the contents and attachments of messages. Using Parse Webhook, SendGrid users can post blog articles or receive uploads directly from email replies.
+In addition to the Event Webhook, SendGrid has also created the Parse Webhook to improve engagement with recipients. The [SendGrid Parse Webhook]({{root_url}}/for-developers/parsing-email/setting-up-the-inbound-parse-webhook/) allows users to parse the contents and attachments of messages. Using Parse Webhook, SendGrid users can post blog articles or receive uploads directly from email replies. The webhook will then POST the parsed portions of the email to a URL specified by the user.
 
-SendGrid provides a full-service solution for solving your total [email delivery needs](https://sendgrid.com). We’re the world’s largest email infrastructure as a service provider working hand in hand with developers to ensure that we’re providing tools and services that solve real-world problems. The webhook will then POST the parsed portions of the email to a URL specified by the user.
+SendGrid provides a full-service solution for solving your total [email delivery needs](https://sendgrid.com). We’re the world’s largest email infrastructure as a service provider working hand in hand with developers to ensure that we’re providing tools and services that solve real-world problems. 

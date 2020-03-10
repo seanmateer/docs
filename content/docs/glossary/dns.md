@@ -28,3 +28,17 @@ For more information:
 
 * [CNAMES]({{root_url}}/glossary/cname/)
 * The SendGrid [Email Infrastructure Guide](https://go.sendgrid.com/SendGrid-Infrastructure-Guide.html?mc=Direct&mcd={{root_url}}/)
+* [DNS in Wikipedia](https://en.wikipedia.org/wiki/Domain_Name_System)
+
+
+<call-out-link linktext="IMPLEMENTATION SERVICES" img="/img/expert-insights-promo1.png" link="https://sendgrid.com/solutions/email-implementation/">
+
+
+### Do you want expert help to get your email program started on the right foot?
+
+
+Save time and feel confident you are set up for long-term success with Email Implementation. Our experts will work as an extension of your team to ensure your email program is correctly set up and delivering value for your business.
+
+
+</call-out-link>
+

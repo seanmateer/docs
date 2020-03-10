@@ -18,13 +18,13 @@ Let's generate a Mailer class. Mailer classes function as our
 controllers for email views.
 
 ``` bash
-$ rails generate mailer UserNotifier
+$ rails generate mailer UserNotifierMailer
 ```
 
-Now we open up the mailer we've just generated, `app/mailers/user_notifier.rb` and add a mailer action that sends users a signup email.
+Now we open up the mailer we've just generated, `app/mailers/user_notifier_mailer.rb` and add a mailer action that sends users a signup email.
 
 ``` ruby
-class UserNotifier < ActionMailer::Base
+class UserNotifierMailer < ApplicationMailer
   default :from => 'any_from_address@example.com'
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
@@ -34,9 +34,9 @@ class UserNotifier < ActionMailer::Base
     :subject => 'Thanks for signing up for our amazing app' )
   end
 end
-``` 
+```
 
-Now we need a view that corresponds to our action and outputs HTML for our email. Create a file `app/views/User_notifier/send_signup_email.html.erb` as follows:
+Now we need a view that corresponds to our action and outputs HTML for our email. Create a file `app/views/user_notifier_mailer/send_signup_email.html.erb` as follows:
 
 ``` html
 <!DOCTYPE html>
@@ -58,20 +58,27 @@ If you don't have a user model quite yet, generate one quickly.
 $ rails generate scaffold user name email login
 $ rake db:migrate
 ```
-Now in the controller for the user model `app/controllers/users_controller.rb`, add a call to UserNotifier.send_signup_email when a user is saved.
+
+Now in the controller for the user model `app/controllers/users_controller.rb`, add a call to `UserNotifierMailer.send_signup_email` when a user is saved.
 
 ``` ruby
 class UsersController < ApplicationController
   def create
     # Create the user from params
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     if @user.save
       # Deliver the signup email
-      UserNotifier.send_signup_email(@user).deliver
+      UserNotifierMailer.send_signup_email(@user).deliver
       redirect_to(@user, :notice => 'User created')
     else
       render :action => 'new'
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :login)
   end
 end
 ```
@@ -88,11 +95,12 @@ ActionMailer::Base.smtp_settings = {
   :password => 'your_sendgrid_password',
   :domain => 'yourdomain.com',
   :address => 'smtp.sendgrid.net',
-  :port => 587,
+  :port => 465,
   :authentication => :plain,
   :enable_starttls_auto => true
 }
-``` 
+```
+
 That's it! When a new user object is saved, an email will be sent to
 the user via SendGrid.
 
@@ -102,6 +110,6 @@ As a best practice, you should not store your credentials directly in
 the source but should instead store them in configuration files or
 environment variables. See this tutorial on <a
   href='http://railsapps.github.io/rails-environment-variables.html'>environment
-  variables in Rails</a>.
+  variables in Rails</a>. And for Rails Versions 5.2+ see <a href='https://guides.rubyonrails.org/security.html#custom-credentials'>Securely storing custom credentials in Rails.</a>
 
 </call-out>

@@ -18,4 +18,13 @@ Once an email send has been attempted but failed, a couple things can happen to 
 * An email is [Dropped]({{root_url}}/glossary/drops/) when the recipient is on a [suppression list]({{root_url}}/ui/sending-email/index-suppressions/)
 
 
+<call-out-link linktext="EXPERT INSIGHTS" img="/img/expert-insights-promo2.png" link="https://sendgrid.com/solutions/expert-insights/">
 
+
+### Looking for more visibility into your email performance?
+
+
+Send better email with Expert Insights. Our detailed monthly reports will enable you to understand your email reputation and recipient engagement and repair issues with expert how-to steps.
+
+
+</call-out-link>

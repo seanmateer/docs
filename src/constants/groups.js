@@ -156,10 +156,22 @@ const GROUPS = {
     name: 'Getting Started',
     order: null,
   },
+  'automation': {
+    name: 'Automation',
+    order: null,
+  },
   'ungrouped': {
     name: 'Ungrouped',
     order: null,
   },
+  'expert-insights': {
+   name: 'Expert Insights',
+   order: null,
+  },
+  'target-segment': {
+    name: 'Targeting and Segmentation',
+    order: null,
+   },
 };
 
 

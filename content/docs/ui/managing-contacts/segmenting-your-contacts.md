@@ -12,125 +12,62 @@ seo:
   description:
 ---
 
-<iframe src="https://player.vimeo.com/video/229916004" width="700" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-You can filter the information stored in your contact lists to create segments. Segmenting contacts using different conditions allows you to create marketing campaigns that directly addresses the wants and needs of a particular audience. You can create a segment that pulls from ALL CONTACTS or a specific existing list. [Custom fields]({{root_url}}/ui/managing-contacts/custom-fields/) allow you to use unique information to identify contacts for different segments.
-Segments are dynamically updated over time as you add contacts who meet the criteria of your segment, or as the traits of your contacts change. For example, a segment with the criteria ”opened an email within 30 days” will evolve as contacts engage (or don’t engage) with your email.
-
-## 	Creating a Segment
-
-You can create a new segment with multiple conditions based on the information you have stored about your contacts, and based on some of the information SendGrid has stored about your Marketing Campaigns.
+<iframe src="https://player.vimeo.com/video/385360784" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 <call-out>
 
-You can create up to 200 segments.
+The content on this page describes the experience in the latest version of Marketing Campaigns. If you’re using the legacy version of Marketing Campaigns, your experience may be different. To explore Marketing Campaigns plans and upgrade, click [here](https://sendgrid.com/pricing).
 
 </call-out>
+
+You can use the information stored on your contacts from [custom fields]({{root_url}}/ui/managing-contacts/custom-fields/), reserved fields or engagement data (how recipients have engaged with your prior emails) to create segments. Segments are similar to contact lists, except they update over time when a contact’s data matches the criteria that you set. Segments can pull from *All Contacts* or any of your Contact lists. 
+
+When you segment your audience, you are able to create personalized Automation emails and Single Sends that directly address the wants and needs of your particular audience. [Custom fields]({{root_url}}/ui/managing-contacts/custom-fields/) and data about how recipients have interacted with your emails allow you to use unique information to identify contacts for different segments. As the traits of your contacts change and you add more contacts that meet the criteria of your segment over time, your segments will dynamically update to reflect these updates. For example, a segment with the criteria “lives in Denver” or “is under 30 years old” will evolve as a contact’s address changes and they grow older. 
+
+<call-out type="warning">
+Currently, you can only create a segment based on engagement with any Single Send (or a specific Single Send) that occurred after August 31, 2019. Soon, this will be enhanced to allow segmentation based on all-time Single Send engagement.
+</call-out>
+
+
+## Creating a Segment
+
+You can create a new segment with multiple conditions based on the information you have stored about your contacts as well as how these contacts have engaged with (opened or clicked) your emails in the past.
 
 *To create a segment:*
 
 1. Navigate to **Marketing** and then select **Contacts**.
-2. Click **Create Segment**.
-3. Choose **Segment all contacts** or **Segment an existing list**.
-4. Enter a *Segment Name*.
-5. To segment an existing list, select a list from the *Select List to Segment* drop-down.
-6. From the *Condition* drop-down, choose the desired condition or custom field.
-7. From the *Criteria* drop-down, choose from a list of available operators based on the chosen condition.
+2. Click on the **Create** dropdown button, and then the **Create Segment** option.
+3. Enter a *Segment Name*.
+4. Choose **Segment all contacts** or **Segment an existing list**.
+5. To segment an existing list, select a list from the *Existing List* drop-down.
+6. In the *targeting* section, start building your condition by choosing a *field* from the drop-down.
+7. Choose from a list of available *operators* based on the chosen field.
+8. Enter the desired *value*.
+9. You can add multiple conditions, and choose to join them with **AND** or **OR**.
+10. Once you are finished adding conditions, click **Save Segment**.
 
-
-For example, to create a segment of recipients that have clicked on a link in a specific marketing campaign:
-
+*For example, to create a segment of recipients that live in Denver:*
+ 
 1. Navigate to **Marketing** and then select **Contacts**.
-1. Click **Create Segment**.
+1. Select the **Create** drop-down.
+1. Click **New Segment**.
+1. Enter a Segment Name.
 1. Choose **Segment all contacts** or **Segment an existing list**.
-1. Enter a *Segment Name*.
-1. From the *Condition* drop-down, select **Engagement:Clicks**.
-1. From the *Criteria* drop-down. select **clicked**.
-1. From the last drop-down, select the name of the campaign you want to use for the segment.
+1. From the targeting drop-down, select **City**. 
+1. Select the operator **is**. 
+1. In the date field, type **Denver** and then click **Save Segment**.  
 
-<call-out>
+Depending on which field is selected, the operator you can choose from differ. The operator available to assign to fields will depend on the field type (Text, Date, or Number). For example, a "Number” field will show `IS`, `IS NOT`, `IS GREATER THAN`, `IS LESS THAN`, `IS EQUAL OR GREATER THAN`, and `IS EQUAL OR LESS THAN` as options whereas a “Text” field will show `CONTAINS`, `DOES NOT CONTAIN`, `IS` and `IS NOT` as options.
+When using more than one condition to segment your contacts, you can select `AND` or `OR` as options, where `AND` requires both conditions to be true and `OR` requires either condition to be true. Once you’ve selected the Field, Operator, and Value, you can layer additional conditions in the segment to narrow the results to a more targeted audience.
 
-The *Condition* drop-down contains required CSV fields, custom fields, and internal event data to help you get your email campaigns to the correct audience. The *Criteria* drop-down contains operators that tell the segment *how* to handle the data specified by the condition.
-
-</call-out>
-
- Depending on which condition is selected, the criteria you can choose from differ. The criteria available to assign to conditions will depend on the field type (Text, Date, or Number). For example, a condition labeled "Number” will show `GREATER THAN`, `LESS THAN`, and `EQUALS` as options whereas a “Text” field will show `IS` and `IS NOT` as options.
-
- ![]({{root_url}}/img/Segmentation.png "Segmentation conditions and criteria")
-
-<table class="table" style="table-layout:fixed">
-  <tr>
-    <th> Criteria</th>
-    <th> Description</th>
-  </tr>
-  <tr>
-    <td>is</td>
-    <td>data matches the text input exactly</td>
-  </tr>
-  <tr>
-    <td>is not</td>
-    <td>the data does not match the text input exactly</td>
-  </tr>
-  <tr>
-    <td>contains word</td>
-    <td>data includes the text input</td>
-  </tr>
-  <tr>
-    <td>is before</td>
-    <td>the date of the event is before the date selected</td>
-  </tr>
-  <tr>
-    <td>is after</td>
-    <td>the date of the event is after the date selected</td>
-  </tr>
-  <tr>
-    <td>is within</td>
-    <td>the date of the event is within a selected date range</td>
-  </tr>
-    <tr>
-    <td>is empty</td>
-    <td>the condition or field is empty in the database</td>
-  </tr>
-    <tr>
-    <td>is not empty</td>
-    <td>the condition or field is not empty in the database</td>
-  </tr>
-  <tr>
-    <td>opened</td>
-    <td>the contact opened an email from a campaign</td>
-  </tr>
-  <tr>
-    <td>not opened</td>
-    <td>the contact did not open an email from a campaign</td>
-  </tr>
-  <tr>
-    <td>clicked</td>
-    <td>the contact clicked a link within a campaign</td>
-  </tr>
-  <tr>
-    <td>not clicked</td>
-    <td>the contact did not click a link within a campaign</td>
-  </tr>
-</table>
-
-<br/>
-When using more than one condition to segment your contacts, you can select `AND` or `OR` as options, where `AND` requires both conditions to be true and `OR` requires either condition to be true. Once you’ve selected the Condition and the Criteria, you can layer additional conditions in the segment to narrow the results to a more targeted audience.
-
-<call-out>
-
-You can add up to 15 different conditions per segment.
-
-</call-out>
-
- ### 	Exporting a Segment
+ ### Exporting a Segment
 
 *To export a Segment:*
 
 1. Click the Action Menu next to the name of the segment you wish to export.
 1. Select **Export**.
 
-This triggers SendGrid to send an email to the primary email address on the account that includes a link to
-download the CSV of all the contacts in the list and their associated custom field values.
+This triggers SendGrid to send an email to the primary email address on the account. The email includes a link to download the CSV of all the contacts in the list and their associated custom field values.
 
 <call-out>
 
@@ -139,8 +76,10 @@ The download link for your CSV export will be valid for 24 hours.
 </call-out>
 
 
- ##	Additional Resources
+ ## Additional Resources
 
 - [Contacts]({{root_url}}/ui/managing-contacts/adding-contacts/)
 - [Custom Fields]({{root_url}}/ui/managing-contacts/custom-fields/)
 - [Tips on Segmenting Your Active Subscribers](https://sendgrid.com/blog/tips-on-segmenting-your-active-subscribers/)
+
+

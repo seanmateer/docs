@@ -13,7 +13,7 @@ navigation:
 
 You can utilize the SendGrid API to automate the addition of Subusers to your account. Use the following ```curl``` examples to add a Subuser using the SendGrid V3.0 API.
 
-## 	Prerequisites
+## 	Prerequisites for automating addition of Subusers to your account
 
 Before you can start using the API, you need to do the following:
 
@@ -23,7 +23,7 @@ Before you can start using the API, you need to do the following:
 
 <call-out>
 
-curl comes standard on Mac operating systems.
+cURL comes standard on Mac operating systems.
 
 </call-out>
 
@@ -44,6 +44,7 @@ curl -X POST -H "Authorization: Basic XXXXXXXXXXXXXX" -H "Content-Type: applicat
   ]
 }' 'https://api.sendgrid.com/v3/subusers'
 ```
+
 The successful Response looks like this:
 
 ```bash
@@ -82,13 +83,13 @@ Successful API key implementation Response:
   
   ```bash
   => 201 created
-{"api_key":"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","api_key_id":"rGaWG-xBTHiBuhCLxWZ0Hg","name":"new api key","scope_set_id":"00766089-9730-4f16-8191-b8bedc5f57f5"}
+{"api_key":"SG.XXXXXXXXXXXXXXXXXXXXXXXXX","api_key_id":"sample_id","name":"new api key","scope_set_id":"00766089-9730-4f16-8191-b8bedc5f57f5"}
 ```
 
 Once this has been done, the Subuser has been created. From this point on, we’ll cover implementing Click Tracking, Open Tracking, and the Event Webhook for those Subusers.
 
 ### Enable/Edit Applications
-As of right now this needs to be done directly through the account in question.
+As of right, now this needs to be done directly through the account in question.
 
 **Click Tracking**
 
@@ -284,6 +285,7 @@ Response:
 }
 }
 ```
+
 After creating DNS records then wait for them to propagate and validate records.
 
 
@@ -353,7 +355,7 @@ Response:
 
 ```bash
 => 2xx
-{ "id”: 50784, "valid": true, "validation_resuts": { "mail_cname": { "valid": false, "reason": "Expected your MX record to be "mx.sendgrid.net" but found "example.com"." },"dkim1": { "valid": true, "reason": null }, "dkim2": { "valid": true, "reason": null }, "spf": { "valid": true, "reason": null } } }
+{ "id”: 50784, "valid": true, "validation_results": { "mail_cname": { "valid": false, "reason": "Expected your MX record to be "mx.sendgrid.net" but found "example.com"." },"dkim1": { "valid": true, "reason": null }, "dkim2": { "valid": true, "reason": null }, "spf": { "valid": true, "reason": null } } }
 ```
 
 

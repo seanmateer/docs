@@ -11,21 +11,28 @@ navigation:
   show: true
 ---
 
-Whether you’re a startup or a large enterprise, SendGrid has several plans that are tailored to meet your email needs. 
+Whether you’re a startup or a large enterprise, SendGrid has several plans tailored to meet your email needs. 
 
 ## Upgrade your SendGrid plan
 
-### Plan and billing details
-
-* Log into the SendGrid UI.
-* Select **Settings** and then click [**Plan & Billing Details**](https://app.sendgrid.com/settings/billing).
-* At the top of the page, click **Change Plan**.
-
 ### Choose a plan
 
-* Choose a plan: **Free**, **Essentials**, **Pro**, **Premier**
-* Select the mail volume you require
-* Submit your payment information.
+*Email API*
+
+1. Decide the plan you upgrade to by comparing your current contact storage usage and email sends to the available plans [here](https://sendgrid.com/pricing).
+1. Navigate to your [**Account Details**](https://app.sendgrid.com/account/products) page, and then click on the **Your Products** tab.
+1. Under **Email API**, select **Change Plan**.
+1. Find the plan you would like to upgrade to and then click **Select**.
+1. Add your payment information in the popup window and then click **Submit**.
+
+
+*Marketing Campaigns*
+
+1. Decide the plan you upgrade to by comparing your current contact storage usage and email sends to the available plans [here](https://sendgrid.com/pricing).
+1. Navigate to your [**Account Details**](https://app.sendgrid.com/account/products) page, and then click on the **Your Products** tab.
+1. Under **Marketing Campaigns**, select **Change Plan**.
+1. Find the plan you would like to upgrade to and then click **Select**.
+1. Add your payment information in the popup window and then click **Submit**.
 
 
 ## SendGrid Plans
@@ -34,51 +41,26 @@ To learn more about each plan, see our [**features comparison**](https://sendgri
 
 If you’d like to speak with a representative about which plan is right for you, feel free to [**contact us**](https://sendgrid.com/contact-us-form/).
 
+### Email API Free Plan
+
+* 100 emails per day after the free trial.
+
 <call-out>
 
-**Free Trial**
+**Email API Free Trial**
 
 40,000 Emails and all the features of Essentials for 30 days.
 
 </call-out>
 
+### Marketing Campaigns Free Plan
+
+Send to up to 2,000 contacts and 6,000 Emails per month and test all the features of Marketing Campaigns, including Automation.
+
 <call-out>
 
-**Dedicated IP with Pro and Premier Plans**
+**Dedicated IP with Email API Pro and Premier and Marketing Campaigns Advanced Plans**
 
-Take control of your sending reputation and deliverability with a dedicated IP address, provided with every Pro and Premier plan. [Learn More](https://sendgrid.com/blog/shared-and-dedicated-ips-which-should-you-choose/)
+Take control of your sending reputation and deliverability with a dedicated IP address, provided with every Pro, Premier and Advanced plan. [Learn More](https://sendgrid.com/blog/shared-and-dedicated-ips-which-should-you-choose/).
 
 </call-out>
-
-
-
-### Free
-
-* 100 emails per day after the free trial.
-
-
-
-### Essentials
-
-* Detailed analytics and reporting.
-* Marketing Campaigns.
-* Easy-to-use APIs and webhooks.
-* DKIM customization.
-* Whitelabeling.
-* 40,000 - 100,000 Emails per month
-
-### Pro
-
-* *Everything in Essentials*
-* Dedicated IP
-* Subuser management
-* Marketing Campaigns.
-* 100,000 - 2.5 Million Emails per month.
-
-### Premier
-
-* *Everything in Essentials*
-* Dedicated IP
-* Subuser management
-* Marketing Campaigns.
-* Over 2.5 Million Emails per month.

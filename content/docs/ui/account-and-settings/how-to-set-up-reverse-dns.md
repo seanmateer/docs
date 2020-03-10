@@ -12,7 +12,8 @@ seo:
   keywords: reverse DNS, rDNS, whitelabel, IP whitelabel
 ---
 
-<iframe src="https://player.vimeo.com/video/265831363" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<!-- OUTDATED REVERSE DNS VIDEO --!>
+<!-- <iframe src="https://player.vimeo.com/video/265831363" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
 
 <call-out>
 
@@ -66,6 +67,18 @@ To set up reverse DNS, you must submit the DNS records provided by SendGrid to y
 
 <call-out>
 
+A recent change with how GoDaddy handles new DNS record values automatically adds your domain, resulting in an A record with too much information and a failure when trying to complete reverse DNS.  An example of this would be **o1.test.yourdomain.yourdomain.com**.
+
+Below is an example of the A record values under the HOST column as they are displayed in step 6 and how you will need to enter into your GoDaddy DNS Management:
+
+HOST/NAME:  **01.test.yourdomain.yourdomain.com**  ENTER A RECORD HOST/NAME AS:  **O1.test**
+
+Entries made to the VALUE or POINTS TO field to not need to be changed.
+
+</call-out>
+
+<call-out>
+
 If you plan to send from multiple domains, you should set up reverse DNS for at least one IP address per domain.
 
 </call-out>
@@ -90,7 +103,7 @@ Only a parent account can set up reverse DNS for an IP address. For a subuser ac
 
 ## 	What do I do if I have more than 10 IPs?
 
-There is a character limit in SPF (sender policy framework) records that means that if you have more than 10 IP addresses, they will not fit in the record. When this is true, we will provide you with the generic SendGrid SPF record which includes all IPs at SendGrid, not just yours. If you would like to secure your SPF record only to include your IPs, you can chain multiple SPF records together manually. For more information see Open SPF’s [website](http://www.openspf.org/).
+There is a character limit in SPF (sender policy framework) records that means that if you have more than 10 IP addresses, they will not fit in the record. When this is true, we will provide you with the generic SendGrid SPF record which includes all IPs at SendGrid, not just yours. If you would like to secure your SPF record only to include your IPs, you can chain multiple SPF records together manually. For more information see Open SPF’s [website](http://www.open-spf.org/).
 
 ## 	Additional resources
 

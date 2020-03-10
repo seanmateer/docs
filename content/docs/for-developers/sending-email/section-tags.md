@@ -11,12 +11,26 @@ navigation:
   show: true
 ---
 
+
+<call-out type="warning">
+
+Due to low usage, this setting will be deprecated Q1 of 2020. Click [here]({{root_url}}/account-and-settings/retired-mail-settings/) for more information.
+
+</call-out>
+
 Section tags allow you to substitute in content in an SMTP message. Section tags are similar to [substitution tags]({{root_url}}/for-developers/sending-email/substitution-tags/) but are specific to the message, and not the recipient. You have to have a substitution tag value for **each** recipient, but you can have any number of section tags. Section tags can then contain Substitution tags for the recipient if needed. Section tags have to be contained within a Substitution tag since SendGrid needs to know which data to populate for the recipient.
 See the [Section Tag Example Walkthrough](#section-tag-example-walkthrough) below.
 
 It's possible and acceptable to use only Substitution tags. However, that method is not [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself), and you may come against [message size limitations]({{root_url}}/ui/sending-email/how-to-send-email-with-marketing-campaigns/).
 
+<call-out type="warning">
+
+When passing `section` please make sure to only use strings as shown in our examples. Any other type could result in unintended behavior.
+
+</call-out>
+
 The format of the SMTP API section tag has the form:
+
 ```json
 {
   "section": {
@@ -40,11 +54,11 @@ Do not use spaces inside your section or substitution tags! For example: `%first
 
 <call-out type="warning">
 
-Do not nest section tags in sections - this causes your section to not be replaced.
+Do not nest section tags in sections * this causes your section to not be replaced.
 
 </call-out>
 
-## 	Section Tag Walkthrough
+## Section Tag Walkthrough
 
 Message body sent to SendGrid:
 
@@ -106,6 +120,7 @@ The accompanying X-SMTPAPI JSON header would look like:
 ```
 
 Alice receives:
+
 ```html
 <html>
  <body>
@@ -122,6 +137,7 @@ Alice receives:
 ```
 
 Bob receives:
+
 ```html
 <html>
  <body>
@@ -138,6 +154,7 @@ Bob receives:
 ```
 
 Casey receives:
+
 ```html
 <html>
  <body>
@@ -153,10 +170,10 @@ Casey receives:
 </html>
 ```
 
-## 	Additional Resources
+## Additional Resources
 
-- [Substitution Tags]({{root_url}}/for-developers/sending-email/substitution-tags/)
-- [SMTP Service Crash Course](https://sendgrid.com/blog/smtp-service-crash-course/)
-- [Getting Started with the SMTP API]({{root_url}}/for-developers/sending-email/getting-started-smtp/)
-- [Integrating with SMTP]({{root_url}}/for-developers/sending-email/integrating-with-the-smtp-api/)
-- [Building an SMTP Email]({{root_url}}/for-developers/sending-email/building-an-smtp-email/)
+* [Substitution Tags]({{root_url}}/for-developers/sending-email/substitution-tags/)
+* [SMTP Service Crash Course](https://sendgrid.com/blog/smtp-service-crash-course/)
+* [Getting Started with the SMTP API]({{root_url}}/for-developers/sending-email/getting-started-smtp/)
+* [Integrating with SMTP]({{root_url}}/for-developers/sending-email/integrating-with-the-smtp-api/)
+* [Building an SMTP Email]({{root_url}}/for-developers/sending-email/building-an-smtp-email/)

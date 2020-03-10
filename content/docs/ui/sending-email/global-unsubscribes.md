@@ -25,15 +25,21 @@ When you select the checkboxes next to the recipient names or select all, using 
 
 *To download your Global Unsubscribe list as a CSV:*
 
-1. Navigate to the Unsubscribe Groups page and locate the list you want to download.
-1. Click the action menu next to the list.
-1. Select **Export**. The file will download in your browser right away.
+1. Navigate to the Global Unsubscribes page.
+1. Click the action menu at the top of the page.
+1. Select **Download as CSV**. The file will download in your browser right away.
 
  ### 	Global Unsubscribe Substitution Tag
 
 When you add the `<%asm_global_unsubscribe_url%>` tag to your email, we will replace that tag with the text "Unsubscribe From All Emails", wherever the tag is found in your email. This will allow your recipient to be globally unsubscribed from all of your emails.
 
 Alternatively, you can use the `<%asm_global_unsubscribe_raw_url%>` tag, which will be replaced with only the global unsubscribe URL without the hyperlinked text "Unsubscribe From All Emails".
+
+<call-out>
+
+When using our ASM Global or Group Unsubscribe tags, you must pass an unsubscribe group in your API or X-SMTPAPI request for the unsubscribe link to populate.
+
+</call-out>
 
 ## 	Using the API
 

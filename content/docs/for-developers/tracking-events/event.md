@@ -10,14 +10,24 @@ layout: page
 navigation:
   show: true
 ---
+## Authentication
+
+In order to use the Event Webhook, you need to enter a username and password. The following characters can be used for webhook authentication.
+
+<call-out type="warning">
+
+Characters not on the list below are not supported and will not authenticate to our webhook.
+
+</call-out>
+
+- **All lower case letters:** a b c d e f g h i j k l m n o p q r s t u v w x y z
+- **All upper case letters:** A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+- **All digits:** 0 1 2 3 4 5 6 7 8 9
+- **The following characters:** - . _ : ~ ! $ & ' ( ) * + , ; = % @
 
 ## 	Events
 
 Events are generated when email is processed by SendGrid and email service providers. There are 2 types of events - delivery and engagement events. Delivery events indicate the status of email delivery to the recipient. Engagement events indicate how the recipient is interacting with the email.
-
-Here is a flow of email events:
-
-![]({{root_url}}/img/email-event-flow.png "The flow of events and their categories")
 
 Here is an event response that includes an example of each type of event:
 
@@ -248,7 +258,7 @@ Delivery events include processed, dropped, delivered, deferred, and bounce.
       </tr>
       <tr>
          <td><a name="bounce"></a>Bounce</td>
-         <td>Receiving server could not or would not accept the message. If a recipient has previously unsubscribed from your emails, the message is dropped.</td>
+         <td>Receiving server could not or would not accept mail to this recipient permanently. If a recipient has previously unsubscribed from your emails, the message is dropped.</td>
          <td>
 ```raw
 [
@@ -261,7 +271,30 @@ Delivery events include processed, dropped, delivered, deferred, and bounce.
       "sg_event_id":"6g4ZI7SA-xmRDv57GoPIPw==",
       "sg_message_id":"14c5d75ce93.dfd.64b469.filter0001.16648.5515E0B88.0",
       "reason":"500 unknown recipient",
-      "status":"5.0.0"
+      "status":"5.0.0",
+      "type":"bounce"
+   }
+]
+```
+            </td>
+      </tr>
+      <tr>
+         <td><a name="blocked"></a>Blocked</td>
+         <td>Receiving server could not or would not accept the message temporarily. If a recipient has previously unsubscribed from your emails, the message is dropped.</td>
+         <td>
+```raw
+[
+   {
+      "email":"example@test.com",
+      "timestamp":1513299569,
+      "smtp-id":"<14c5d75ce93.dfd.64b469@ismtpd-555>",
+      "event":"bounce",
+      "category":"cat facts",
+      "sg_event_id":"6g4ZI7SA-xmRDv57GoPIPw==",
+      "sg_message_id":"14c5d75ce93.dfd.64b469.filter0001.16648.5515E0B88.0",
+      "reason":"500 unknown recipient",
+      "status":"5.0.0",
+      "type":"blocked"
    }
 ]
 ```
@@ -537,7 +570,7 @@ Engagement events include open, click, spam report, unsubscribe, group unsubscri
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>X</td>
+    <td>X*</td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -645,17 +678,17 @@ Engagement events include open, click, spam report, unsubscribe, group unsubscri
   </tr>
   <tr>
     <td><a href="#uniqueargs">unique_args</a></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
   </tr>
   <tr>
     <td><a href="#marketingcampaignid">marketing_campaign_id</a></td>
@@ -715,6 +748,8 @@ Engagement events include open, click, spam report, unsubscribe, group unsubscri
   </tr>
 </table>
 
+\* In the case of a delayed or asynchronous bounce, the message ID will be unavailable.
+
  ### 	JSON objects
 
 - <a name="email"></a>`email` - the email address of the recipient
@@ -722,16 +757,18 @@ Engagement events include open, click, spam report, unsubscribe, group unsubscri
 - <a name="event"></a>`event` - the event type. Possible values are processed, dropped, delivered, deferred, bounce, open, click, spam report, unsubscribe, group unsubscribe, and group resubscribe.
 - <a name="smtpid"></a>`smtp-id` - a unique ID attached to the message by the originating system.
 - <a name="useragent"></a>`useragent` - the user agent responsible for the event. This is usually a web browser. For example, "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36".
-- <a name="ip"></a>`IP` - the IP address used to send the email. For `open` and `click` events, it is the IP address of the recipient who engaged with the email.
-- <a name="sgeventid"></a>`sg_event_id` - a unique ID to this event that you can use for deduplication purposes. These IDs are 22 characters long.
-- <a name="sgmessageid"></a>`sg_message_id` - a unique, internal SendGrid ID for the message. The first half of this is pulled from the `smtp-id`.
+- <a name="ip"></a>`ip` - the IP address used to send the email. For `open` and `click` events, it is the IP address of the recipient who engaged with the email.
+- <a name="sgeventid"></a>`sg_event_id` - a unique ID to this event that you can use for deduplication purposes. These IDs are up to 100 characters long and are URL safe.
+- <a name="sgmessageid"></a>`sg_message_id` - a unique, internal SendGrid ID for the message. The first half of this ID is pulled from the `smtp-id`. The message ID will be included in most cases. In the event of an asynchronous bounce, the message ID will not be available. An asynchronous bounce occurs when a message is first accepted by the receiving mail server and then bounced at a later time. When this happens, there is less information available about the bounce.
 - <a name="reason"></a>`reason` - any sort of error response returned by the receiving server that describes the reason this event type was triggered.
 - <a name="status"></a>`status` - status code string. Corresponds to HTTP status code - for example, a JSON response of 5.0.0 is the same as a 500 error response.
 - <a name="response"></a>`response` - the full text of the HTTP response error returned from the receiving server.
-- <a name="tls"></a>`tls` - indicates whether TLS encription was used in sending this message. For more information about TLS, see the [TLS Glossary page]({{root_url}}/glossary/tls/).
+- <a name="tls"></a>`tls` - indicates whether TLS encryption was used in sending this message. For more information about TLS, see the [TLS Glossary page]({{root_url}}/glossary/tls/).
 - <a name="url"></a>`url` - the URL where the event originates. For click events, this is the URL clicked on by the recipient.
+- <a name="url_offset"</a>`url_offset` - if there is more than one of the same links in an email, this tells you which of those identical links was clicked.
 - <a name="attempt"></a>`attempt` - the number of times SendGrid has attempted to deliver this message.
 - <a name="category"></a>`category` - [Categories]({{root_url}}/glossary/categories/) are custom tags that you set for the purpose of organizing your emails. If you send single categories as an array, they will be returned by the webhook as an array. If you send single categories as a string, they will be returned by the webhook as a string.
+- <a name="type"></a>`type` - indicates whether the bounce event was a hard bounce (type=bounce) or block (type=blocked)
 
 String categories:
 
@@ -1062,4 +1099,6 @@ For emails sent through our Legacy Marketing Email tool, unsubscribes look like 
 - [Troubleshooting the event webhook]({{root_url}}/for-developers/tracking-events/troubleshooting/)
 - [An Event Webhook case study](https://sendgrid.com/blog/leveraging-sendgrids-event-api/)
 - [Webhook web libraries]({{root_url}}/for-developers/sending-email/libraries/)
-- [Getting started with Keen.io]({{root_url}}/for-developers/tracking-events/analytics-with-keen-io/)
+- [Analyze, Visualize, and Store SendGrid Event Data with Keen]({{root_url}}/for-developers/tracking-events/analytics-with-keen-io/)
+- [Email Event Data with Keen]({{root_url}}/ui/analytics-and-reporting/tracking-data-with-keen-io/)
+- [Run SQL on your Sengrid webhook data](https://pipedream.com/@dylburger/run-sql-on-sendgrid-engagement-data-for-free-p_X13CGV)

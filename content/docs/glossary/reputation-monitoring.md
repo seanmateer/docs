@@ -26,7 +26,7 @@ Please note that the SendGrid Reputation does not represent your inboxing percen
 
 The SendGrid account reputation is computed based on a calculation of:
 
-- The percentage of delivered requests out of the total amount requested (delivered / requests). This number takes into account bounces, invalid emails, and drops (repeat bounces, unsubscribes, etc.) Please review our [Statistics]({{root_url}}/ui/analytics-and-reporting/stats-overview/) article for more detail on these terms.
+- The percentage of delivered requests out of the total amount requested (delivered / requests). This number takes into account bounces, invalid emails, and drops (repeat bounces, unsubscribes, etc.). Please review our [Statistics]({{root_url}}/ui/analytics-and-reporting/stats-overview/) article for more detail on these terms.
 
 - Spam Reports. Each spam report is a user actively rejecting your mail and has a strong negative effect.
 
@@ -57,3 +57,16 @@ We regularly monitor our customers' account reputation for abuse and undesirable
 - **Reputation above 80%:** Nice! This percentage indicates a good sending reputation, and there are no issues at this time.
 - **Reputation between 70% and 80%:** This is considered a poor reputation and you should consider taking action to identify and fix problems with your sending practices.
 - **Reputation below 70%:** Accounts with a reputation below 70% may be subject to immediate suspension or termination.
+
+
+<call-out-link linktext="EXPERT SERVICES" img="/img/expert-insights-promo3.png" link="https://sendgrid.com/solutions/expert-services/">
+
+
+### Need a helping hand?
+
+
+Getting into the inbox just so you can have the chance to engage with your customers often isn’t as easy as pressing “send.” Get customized advice from our team of email experts on how to optimize your email strategy.
+
+
+</call-out-link>
+

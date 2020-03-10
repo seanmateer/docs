@@ -194,9 +194,14 @@ For subusers, SendGrid attaches authenticated domain information in the followin
 
 *If no valid authenticated domains can be found, the sending domain defaults to sendgrid.net.*
 
+
+<call-out-link linktext="IMPLEMENTATION SERVICES" img="/img/expert-insights-promo1.png" link="https://sendgrid.com/solutions/email-implementation/">
+
+
 ## 	Additional resources
 
 - [How to set up domain authentication]({{root_url}}/ui/account-and-settings/how-to-set-up-domain-authentication/)
 - [How to set up link branding]({{root_url}}/ui/account-and-settings/how-to-set-up-link-branding/)
 - [How to set up reverse DNS]({{root_url}}/ui/account-and-settings/how-to-set-up-reverse-dns/)
+
 

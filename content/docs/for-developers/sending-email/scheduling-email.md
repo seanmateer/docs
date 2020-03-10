@@ -20,12 +20,12 @@ If you have the flexibility, it's better to schedule mail for off-peak times. Mo
 </call-out>
 
 ## 1. Marketing Campaigns
-If you are using Marketing Campaigns, you can schedule a time to send your campaign from the Settings tab by turning Off the option to Send Immediately. Next, verify that you are using the the correct time zone, and then simply choose the date and time that you would like to send your campaign at.
+If you are using Marketing Campaigns, you can schedule a time to send your campaign from the Settings tab by turning Off the option to Send Immediately. Next, verify that you are using the correct time zone, and then simply choose the date and time that you would like to send your campaign at.
 
 You can also schedule your campaigns with the [Marketing Campaigns API]({{root_url}}/API_Reference/Web_API_v3/Marketing_Campaigns/campaigns.html#Schedule-a-Campaign-POST).
 
 ## 2. API
-You can you can schedule a time to send your email by using the the `send_at` object of the `POST /mail/send` method of the [V3 API]({{root_url}}/API_Reference/api-reference). For more information about scheduling and stopping scheduled sends with the API, see [Can I Stop a Scheduled Send]({{root_url}}/for-developers/sending-email/stopping-a-secheduled-send/).
+You can schedule a time to send your email by using the `send_at` object of the `POST /mail/send` method of the [V3 API]({{root_url}}/api-reference). For more information about scheduling and stopping scheduled sends with the API, see [Can I Stop an in-progress send]({{root_url}}/for-developers/sending-email/stopping-an-in-progress-send/).
 
 
 ## 3. SMTP API
@@ -35,5 +35,5 @@ This parameter allows SendGrid to begin processing your email requests before se
 
 Here's an example of how this timestamp might look in your SMTP API JSON header:
 
-`{ "send\_at": 1409348513 }`
+`{ "send_at": 1409348513 }`
 

@@ -11,12 +11,6 @@ navigation:
   show: true
 ---
 
-<call-out>
-
-Parent accounts will see aggregated statistics for their account and all subuser accounts. Subuser accounts will only see their own statistics.
-
-</call-out>
-
 Categories can help organize your email analytics by enabling you to “tag” emails by type. Just as you can view the statistics on all your [email activity]({{root_url}}/ui/analytics-and-reporting/email-activity-feed/), you can go a step further and view the statistics broken down to a particular category.
 
 The actual statistics included vary depending upon your [account settings]({{root_url}}/ui/account-and-settings/account/). Emails sent, bounces, and spam reports will always get tracked. Unsubscribes, clicks, and opens require that the associated settings are enabled.
@@ -33,10 +27,16 @@ This table will refresh with new or adjusted data based on the various filters a
 
 ## 	Using the API
 
-[Using Categories with the SMTP API]({{root_url}}/for-developers/sending-email/categories/))
+[Using Categories with the SMTP API]({{root_url}}/for-developers/sending-email/categories/)
+
+<call-out>
+
+Want deeper data and insights? With [SendGrid Email Insights Reports](https://go.sendgrid.com/Email-Insights-Reports.html?utm_source=docs), you’ll get access to more data about your email performance plus customized insights from a deliverability consultant.
+
+</call-out>
 
 ## 	Additional Resources
 
 - [Email Activity]({{root_url}}/ui/analytics-and-reporting/email-activity-feed/)
-- [Statistics Filters]({{root_url}}/ui/analytics-and-reporting/stats-overview/#statistics-filters).
+- [Statistics Filters]({{root_url}}/ui/analytics-and-reporting/stats-overview/#statistics-filters)
 - [Account Settings]({{root_url}}/ui/account-and-settings/account/)

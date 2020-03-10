@@ -18,13 +18,6 @@ module.exports = {
     },
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-segment-js',
-      options: {
-          prodKey: '1CjnBNPybWzyv10ssZRxdwmb8vrYF4yj',
-          trackPage: true,
-      },
-    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-sitemap',
@@ -47,7 +40,7 @@ module.exports = {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: 'GTM-PQC59L',
-        includeInDevelopment: false,
+        includeInDevelopment: true,
       },
     },
     {
@@ -74,12 +67,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: config.googleAnalyticsID,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-nprogress',
       options: {
         color: config.themeColor,
@@ -87,6 +74,15 @@ module.exports = {
     },
     'gatsby-plugin-sharp',
     'gatsby-plugin-catch-links',
+    {
+      resolve: 'gatsby-plugin-segment-js',
+      options: {
+        prodKey: '1CjnBNPybWzyv10ssZRxdwmb8vrYF4yj',
+        devKey: 'QaZKJjbUWrCqNO0ObRrF64qDRVE40ZIr',
+        // This is done via GTM.
+        trackPage: true,
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -99,13 +95,8 @@ module.exports = {
         display: 'minimal-ui',
         icons: [
           {
-            src: '/logos/logo-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: '/logos/logo-512x512.png',
-            sizes: '512x512',
+            src: '/brand/sg-mark.png',
+            sizes: '771x724',
             type: 'image/png',
           },
         ],

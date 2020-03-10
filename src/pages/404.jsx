@@ -1,10 +1,11 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import './404.scss';
+import NoHeaderFooter from '../components/layout/NoHeaderFooter';
 
-class NotFound extends React.Component {
-  render() {
-    return (
+function NotFound({ location }) {
+  return (
+    <NoHeaderFooter location={location}>
       <div className="puppy-wrap">
         <div className="container ta-center">
           <div className="row not-found-content">
@@ -16,8 +17,8 @@ class NotFound extends React.Component {
           </div>
         </div>
       </div>
-    );
-  }
+    </NoHeaderFooter>
+  );
 }
 
 export default NotFound;
